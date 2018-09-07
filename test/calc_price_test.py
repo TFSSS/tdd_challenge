@@ -5,7 +5,8 @@ import io
 
 class CalcPriceTest(unittest.TestCase):
     def testCreate(self):
+        outputtxt = io.StringIO()   
         iotext = io.StringIO("10")
-        sys.stdout = iotext
-        calc = Calc_Price(iotext)
-        self.assertEqual(iotext.getvalue(),"11")
+        calc = Calc_Price(iotext,outputtxt)
+        calc.calc_price()
+        self.assertEqual(calc.outputtxt.getvalue(),"11\n")
