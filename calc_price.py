@@ -1,7 +1,6 @@
 from decimal import Decimal, ROUND_HALF_UP, ROUND_HALF_EVEN
 import sys
 
-
 class Calc_Price:
     def __init__(self, inputtxt, outputtxt):
         self._inputtxt = inputtxt
@@ -10,8 +9,8 @@ class Calc_Price:
     def calc_price(self):
         for line in self._inputtxt.readlines():
             line = str(line).replace('\n', '')
-            print('#')
-            print(line)
+            #print('#')
+            #print(line)
             if line == '':
                 self.outputtxt.write('0\n')
             else:
@@ -23,7 +22,6 @@ class Calc_Price:
 
 if __name__ == '__main__':
     # 本番はこんな感じで使うことを想定
-    kvs = SomeKVSUsingDynamoDB()
-    my_memory = MyMemory(kvs)
-    my_memory.set_favorite('ボルダリング')
-    print(my_memory.get_favorite())
+    inputtxt = sys.stdin
+    calc = Calc_Price(inputtxt,sys.stdout)
+    calc.calc_price()
