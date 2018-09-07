@@ -22,3 +22,5 @@ python -m test.run test/sample.py
 - 副作用とテスト：DI (Dependency Injection) のサンプル
     - [di_sample.py](di_sample.py)
     - [test/di_sample.py](./test/di_sample.py)
+
+# tuika
