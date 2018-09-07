@@ -10,7 +10,7 @@ def main(path=None):
     if path:
         tests = _get_tests_from_file_path(path)
     else:
-        tests = TestLoader().discover(os.path.join(project_dir, 'test/'), pattern='*.py', top_level_dir=project_dir)
+        tests = TestLoader().discover(os.path.join(project_dir, 'test\\'), pattern='*.py', top_level_dir=project_dir)
 
     return_code = not TextTestRunner().run(tests).wasSuccessful()
     sys.exit(return_code)
@@ -22,11 +22,11 @@ def _get_tests_from_file_path(path):
 
     # path は test/hoge/fuga.py などで与えられる
     path = os.path.relpath(path, project_dir)
-    if not path.startswith('test/'):
-        path = 'test/' + path
+    if not path.startswith('test\\'):
+        path = 'test\\' + path
 
     # test.hoge.fuga に変換
-    module_name = path.replace('.py', '').replace('/', '.')
+    module_name = path.replace('.py', '').replace('\\', '.')
     return TestLoader().loadTestsFromName(module_name)
 
 
