@@ -5,8 +5,6 @@ from calcPrice import CalcPrice
 
 class CalcPriceTest(unittest.TestCase):
     def testCreate(self):
-        # stack = Stack()
-        # self.assertEqual(stack.isEmpty(), True)
         calc = CalcPrice()
         self.assertEqual(calc.calc_price([10, 12]), 24)
         self.assertEqual(calc.calc_price([40, 16]), 62)
